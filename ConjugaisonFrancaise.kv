@@ -1,0 +1,271 @@
+#:kivy 2.1.0
+WindowManager:
+    StartScreen:
+    IndicativePresent:
+    
+<StartScreen>:
+    name: "Start"
+    BoxLayout:
+        orientation: 'horizontal'
+        size: root.width, root.height
+        canvas.after:
+            Rectangle:
+                pos: self.center_x - 10, 0
+                size: 20, self.height
+        
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 0, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            orientation: 'vertical'
+            padding: self.height/2 - 15
+            Button:
+                text: "Search for a random verb"
+                size_hint: None, None
+                pos_hint: {'center_x':.5, 'center_y': .5}
+                height: 30
+                width: 200
+                on_release:
+                    root.searchRandomVerb()
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 5
+            padding: self.height/2 - 30
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            TextInput:
+                id: verbInput
+                hint_text:'être, avoir...'
+                size_hint: None, None
+                multiline: False
+                pos_hint: {'center_x':.5, 'center_y': .5}
+                width: 110
+                height: 30
+                halign: 'center'
+            Button:
+                text: "Search"
+                size_hint: None, None
+                #pos: self.parent.width/2, self.parent.height/2
+                pos_hint: {'center_x':.5, 'center_y': .5}
+                height: 30
+                width: 90
+                on_release: 
+                    root.searchAVerb()
+
+<IndicativePresent>:
+    name: "IndicativePresent"
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, None
+            height: 50
+            Label:
+                id: verbName
+                markup: True
+            Label:
+                id: verbNameEng
+                markup: True
+            Label:
+                id: verbNamePl
+                markup: True
+            Button:
+                text: "New random word"
+                height: 30
+                size_hint: 1, None
+                pos_hint: {'center_x':.5, 'center_y': .5}
+                on_release: 
+                    root.newRandomWord()
+            TextInput:
+                id: verbInputInside
+                hint_text:'être, avoir...'
+                size_hint: None, None
+                multiline: False
+                pos_hint: {'center_x':.5, 'center_y': .5}
+                height: 30
+                halign: 'center'
+            Button:
+                text: "Search for a word"
+                height: 30
+                size_hint: 1, None
+                pos_hint: {'center_x':.5, 'center_y': .5}
+                on_release: 
+                    root.searchForANewWord()
+        TabbedPanel:
+            id: mode
+            do_default_tab: False
+
+<MyTabbedPanelItem>:
+    BoxLayout:
+        padding: 10
+        spacing: 10
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            GridLayout:
+                id: gridID
+                rows: 6
+                cols: 3
+                spacing: 10
+                padding: 10
+                Label:
+                    text: "Je"
+                    size_hint: None, None
+                    height: 30
+                    width: 40
+                TextInput:
+                    id: inputID
+                    size_hint: 0.7, None
+                    multiline: False
+                    pos_hint: {'center_x':.5, 'center_y': .5}
+                    height: 30
+                    halign: 'center'
+                Image:
+                    size_hint: None, None
+                    height: 30
+                    width: 30
+                    disabled: True
+                    opacity: 0
+                Label:
+                    text: "Tu"
+                    size_hint: None, None
+                    height: 30
+                    width: 40
+                TextInput:
+                    size_hint: 0.7, None
+                    multiline: False
+                    pos_hint: {'center_x':.5, 'center_y': .5}
+                    height: 30
+                    halign: 'center'
+                Image:
+                    size_hint: None, None
+                    height: 30
+                    width: 30
+                    disabled: True
+                    opacity: 0
+                Label:
+                    text: "Il/Elle"
+                    size_hint: None, None
+                    height: 30
+                    width: 40
+                TextInput:
+                    size_hint: 0.7, None
+                    multiline: False
+                    pos_hint: {'center_x':.5, 'center_y': .5}
+                    height: 30
+                    halign: 'center'
+                Image:
+                    size_hint: None, None
+                    height: 30
+                    width: 30
+                    disabled: True
+                    opacity: 0
+                Label:
+                    text: "Nous"
+                    size_hint: None, None
+                    height: 30
+                    width: 40
+                TextInput:
+                    size_hint: 0.7, None
+                    multiline: False
+                    pos_hint: {'center_x':.5, 'center_y': .5}
+                    height: 30
+                    halign: 'center'
+                Image:
+                    size_hint: None, None
+                    height: 30
+                    width: 30
+                    disabled: True
+                    opacity: 0
+                Label:
+                    text: "Vous"
+                    size_hint: None, None
+                    height: 30
+                    width: 40
+                TextInput:
+                    size_hint: 0.7, None
+                    multiline: False
+                    pos_hint: {'center_x':.5, 'center_y': .5}
+                    height: 30
+                    halign: 'center'
+                Image:
+                    size_hint: None, None
+                    height: 30
+                    width: 30
+                    disabled: True
+                    opacity: 0
+                Label:
+                    text: "Ils/Elles"
+                    size_hint: None, None
+                    height: 30
+                    width: 40
+                TextInput:
+                    size_hint: 0.7, None
+                    multiline: False
+                    pos_hint: {'center_x':.5, 'center_y': .5}
+                    height: 30
+                    halign: 'center'
+                Image:
+                    size_hint: None, None
+                    height: 30
+                    width: 30
+                    disabled: True
+                    opacity: 0
+            
+            GridLayout:
+                rows: 6
+                cols: 1
+                spacing: 10
+                padding: 10
+                Label:
+                    text: "Je suis"
+                    size_hint: 1, None
+                    height: 30
+                    opacity: 0
+                    disabled: True
+                Label:
+                    text: "Tu es"
+                    size_hint: 1, None
+                    height: 30
+                    opacity: 0
+                    disabled: True
+                Label:
+                    text: "Il/Elle est"
+                    size_hint: 1, None
+                    height: 30
+                    opacity: 0
+                    disabled: True
+                Label:
+                    text: "Nous sommes"
+                    size_hint: 1, None
+                    height: 30
+                    opacity: 0
+                    disabled: True
+                Label:
+                    text: "Vous etes"
+                    size_hint: 1, None
+                    height: 30
+                    opacity: 0
+                    disabled: True
+                Label:
+                    text: "Ils/Elles sont"
+                    size_hint: 1, None
+                    height: 30
+                    opacity: 0
+                    disabled: True
+        Button:
+            text: "Check"
+            size_hint: (0.2,None)
+            height: 40
+            pos_hint: {'center_x':.5, 'center_y': .5}
+            on_release: 
+                root.checkInput()
