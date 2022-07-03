@@ -23,11 +23,11 @@ WindowManager:
             orientation: 'vertical'
             padding: self.height/2 - 15
             Button:
-                text: "Search for a random verb"
+                text: "Recherche d'un verbe aléatoire"
                 size_hint: None, None
                 pos_hint: {'center_x':.5, 'center_y': .5}
                 height: 30
-                width: 200
+                width: 230
                 on_release:
                     root.searchRandomVerb()
 
@@ -52,7 +52,7 @@ WindowManager:
                 height: 30
                 halign: 'center'
             Button:
-                text: "Search"
+                text: "Recherche"
                 size_hint: None, None
                 #pos: self.parent.width/2, self.parent.height/2
                 pos_hint: {'center_x':.5, 'center_y': .5}
@@ -79,9 +79,10 @@ WindowManager:
                 id: verbNamePl
                 markup: True
             Button:
-                text: "New random word"
+                text: "Nouveau mot aléatoire"
                 height: 30
-                size_hint: 1, None
+                width: 160
+                size_hint: None, None
                 pos_hint: {'center_x':.5, 'center_y': .5}
                 on_release: 
                     root.newRandomWord()
@@ -94,7 +95,7 @@ WindowManager:
                 height: 30
                 halign: 'center'
             Button:
-                text: "Search for a word"
+                text: "Recherche d'un mot"
                 height: 30
                 size_hint: 1, None
                 pos_hint: {'center_x':.5, 'center_y': .5}
@@ -263,7 +264,7 @@ WindowManager:
                     opacity: 0
                     disabled: True
         Button:
-            text: "Check"
+            text: "Vérifiez"
             size_hint: (0.2,None)
             height: 40
             pos_hint: {'center_x':.5, 'center_y': .5}
